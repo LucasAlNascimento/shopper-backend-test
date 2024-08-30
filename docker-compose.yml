@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=$NODE_ENV
+      - GEMINI_API_KEY=$GEMINI_API_KEY
+    volumes:
+      - .:/shopper-backend-test
+      - /shopper-backend-test/node_modules
